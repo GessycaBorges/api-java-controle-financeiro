@@ -23,7 +23,7 @@ public class Transaction {
     @JoinColumn(name = "category_id")
     private Category category;
 
-    @Column(precision = 2)
+    @Column(scale = 2)
     private double amount;
     private LocalDateTime date;
     private String observation;
