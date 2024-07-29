@@ -1,4 +1,4 @@
-package com.api_java_controle_financeiro.model;
+package com.api_java_controle_financeiro.domain.model;
 
 import jakarta.persistence.*;
 

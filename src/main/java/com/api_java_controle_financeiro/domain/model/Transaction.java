@@ -1,7 +1,8 @@
-package com.api_java_controle_financeiro.model;
+package com.api_java_controle_financeiro.domain.model;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity(name = "tb_transaction")
@@ -15,18 +16,29 @@ public class Transaction {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToOne
-    @JoinColumn(name = "type_id")
-    private Type type;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "transaction_type")
+    private TransactionType type;
 
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
 
-    @Column(scale = 2)
-    private double amount;
+    @Column(precision = 15, scale = 2)
+    private BigDecimal amount;
     private LocalDateTime date;
     private String observation;
+
+    public Transaction() {}
+
+    public Transaction(User user, TransactionType type, Category category, BigDecimal amount, LocalDateTime date, String observation) {
+        this.user = user;
+        this.type = type;
+        this.category = category;
+        this.amount = amount;
+        this.date = date;
+        this.observation = observation;
+    }
 
     public Long getId() {
         return id;
@@ -44,11 +56,11 @@ public class Transaction {
         this.user = user;
     }
 
-    public Type getType() {
+    public TransactionType getType() {
         return type;
     }
 
-    public void setType(Type type) {
+    public void setType(TransactionType type) {
         this.type = type;
     }
 
@@ -60,11 +72,11 @@ public class Transaction {
         this.category = category;
     }
 
-    public double getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 
