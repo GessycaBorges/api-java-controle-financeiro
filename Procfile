@@ -1,0 +1,1 @@
+web: java -jar target/api-java-controle-financeiro-0.0.1-SNAPSHOT.jar
