@@ -1,10 +1,13 @@
 package com.api_java_controle_financeiro.service;
 
 import com.api_java_controle_financeiro.domain.model.User;
+import com.api_java_controle_financeiro.dto.UserDTO;
+import org.springframework.stereotype.Service;
 
+@Service
 public interface UserService {
 
-    User findById(Long id);
+    UserDTO findById(Long id);
 
-    User Create(User userToCreate);
+    User create(User userToCreate);
 }

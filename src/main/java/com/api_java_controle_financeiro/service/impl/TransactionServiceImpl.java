@@ -4,10 +4,12 @@ import com.api_java_controle_financeiro.domain.model.Transaction;
 import com.api_java_controle_financeiro.domain.model.TransactionType;
 import com.api_java_controle_financeiro.domain.repository.TransactionRepository;
 import com.api_java_controle_financeiro.service.TransactionService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
 
+@Service
 public class TransactionServiceImpl implements TransactionService {
 
     private final TransactionRepository transactionRepository;
